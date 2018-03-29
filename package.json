@@ -24,7 +24,7 @@
   },
   "homepage": "https://github.com/dadamotion/laravel-mix-criticalcss#readme",
   "dependencies": {
-    "html-critical-webpack-plugin": "^1.1.0",
+    "html-critical-webpack-plugin": "^1.1.0"
   },
   "peerDependencies": {
     "laravel-mix": "^2.1.7"
