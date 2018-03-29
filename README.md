@@ -4,15 +4,9 @@
 <a href="https://www.npmjs.com/package/laravel-mix-criticalcss"><img src="https://img.shields.io/npm/l/laravel-mix-criticalcss.svg" alt="NPM"></a>
 </p>
 
-
-
 # Laravel Mix Critical
 
 This extension provides instant Critical support to your Mix (v2.1 and up) builds.
-
-## About
-
-This is an alternate critical css package for laravel mix based on Rias500/laravel-mix-critical.
 
 ## Usage
 
@@ -32,7 +26,7 @@ require('laravel-mix-criticalcss');
 mix
     .js('resources/assets/js/app.js', 'public/js')
     .less('resources/assets/less/app.less', 'public/css')
-    .critical({
+    .criticalCss({
         enabled: mix.inProduction(),
         paths: {
             base: 'https://url-of-where-criticalcss-is-extracted.com/'

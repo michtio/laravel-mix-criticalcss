@@ -56,4 +56,4 @@ class Critical {
 
 }
 
-mix.extend('criticalcss', new Critical());
+mix.extend('criticalCss', new Critical());

@@ -1,7 +1,6 @@
-
 {
   "name": "laravel-mix-criticalcss",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "description": "A Laravel Mix extension for Critical CSS.",
   "main": "index.js",
   "scripts": {
@@ -18,12 +17,15 @@
     "critical",
     "webpack"
   ],
-  "author": "Michael Thomas",
+  "author": "Michael Thomas <michael@dadamotion.be> (https://dadamotion.be)",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/dadamotion/laravel-mix-criticalcss/issues"
   },
   "homepage": "https://github.com/dadamotion/laravel-mix-criticalcss#readme",
+  "dependencies": {
+    "html-critical-webpack-plugin": "^1.1.0",
+  },
   "peerDependencies": {
     "laravel-mix": "^2.1.7"
   }
