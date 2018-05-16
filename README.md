@@ -29,9 +29,9 @@ mix
     .criticalCss({
         enabled: mix.inProduction(),
         paths: {
-            base: 'https://url-of-where-criticalcss-is-extracted.com/'
+            base: 'https://url-of-where-criticalcss-is-extracted.com/',
             templates: './where-critical-css-file-needs-to-be-written/'
-        }
+        },
         urls: [
             { url: 'blog', template: 'blog_critical.min.css' },
         ],
