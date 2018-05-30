@@ -13,7 +13,7 @@ This extension provides instant Critical support to your Mix (v2.1 and up) build
 First, install the extension.
 
 ```
-npm install laravel-mix-critical --save-dev
+npm install laravel-mix-criticalcss --save-dev
 ```
 
 Then, require it within your `webpack.mix.js` file, like so:
