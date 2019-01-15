@@ -33,7 +33,7 @@ mix
             templates: './where-critical-css-file-needs-to-be-written/'
         },
         urls: [
-            { url: 'blog', template: 'blog_critical.min.css' },
+            { url: 'blog', template: 'blog' },
         ],
         options: {
             minify: true,
@@ -41,7 +41,7 @@ mix
     });
 ```
 
-And you're done! Compile everything down with `npm run dev`.
+And you're done! Compile everything down with `npm run prod`. `npm run dev` will not generate any critical css! Also make sure that your paths are correct and point to valid urls / segments of your website, whenever criticalcss has issues detecting the url, it might throw a console error!
 
 ## Options
 Only `urls` is required - all other options are optional. If you don't want to use the paths object you can simply define your base and templates in the url and template options from `urls`
