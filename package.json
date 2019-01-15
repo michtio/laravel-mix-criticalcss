@@ -1,6 +1,6 @@
 {
   "name": "laravel-mix-criticalcss",
-  "version": "0.1.2",
+  "version": "1.0.0",
   "description": "A Laravel Mix extension for Critical CSS.",
   "main": "index.js",
   "scripts": {
