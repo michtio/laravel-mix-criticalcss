@@ -12,7 +12,7 @@ class Critical {
     register(config) {
         if (!config.urls || config.urls.length <= 0) {
             throw new Error(
-                'You need to provide at least 1 valid template with src and dest in the urls options.'
+                'You need to provide at least 1 valid url object containing both url and template keys.'
             );
         }
 

@@ -50,5 +50,5 @@ Only `urls` is required - all other options are optional. If you don't want to u
 | ---------------- | ------------------ | -------------------- |-------------  |
 | enabled          | `boolean`          | `mix.inProduction()` | If generating Critical CSS should be enabled |
 | paths            | `object`           | `{}`                 | Takes 2 arguments `base` ( src-url ) and `templates` ( folder where critical css files should be written )
-| urls             | `array`            | `[]`                 | An array of url objects, each with a src and dest: `{ src: 'http://example.com', dest: 'index_critical.min.css' }` |
+| urls             | `array`            | `[]`                 | An array of url objects, each with a url and template key: `{ url: 'http://example.com', template: 'index' }` |
 | options          | `object`           | `{}`                 | An object of [Critical](https://github.com/addyosmani/critical#options) options |
