@@ -22,6 +22,8 @@ class Critical {
             urls: [],
             options: {},
         }, config);
+
+        if (this.config.paths.suffix == null) this.config.paths.suffix = '_critical.min';
     }
 
     webpackPlugins() {
@@ -32,7 +34,7 @@ class Critical {
             this.config.urls.forEach((template) => {
 
                 const criticalSrc = this.config.paths.base + template.url;
-                const criticalDest = this.config.paths.templates + template.template + '_critical.min.css';
+                const criticalDest = this.config.paths.templates + template.template + this.config.paths.suffix + '.css';
 
                 if (criticalSrc.indexOf('amp_') !== -1) {
 
