@@ -30,7 +30,8 @@ mix
         enabled: mix.inProduction(),
         paths: {
             base: 'https://url-of-where-criticalcss-is-extracted.com/',
-            templates: './where-critical-css-file-needs-to-be-written/'
+            templates: './where-critical-css-file-needs-to-be-written/',
+            suffix: '_critical.min'
         },
         urls: [
             { url: 'blog', template: 'blog' },
@@ -39,6 +40,8 @@ mix
             minify: true,
         },
     });
+
+// generates `./where-critical-css-file-needs-to-be-written/blog_critical.min.css`
 ```
 
 And you're done! Compile everything down with `npm run prod`. `npm run dev` will not generate any critical css! Also make sure that your paths are correct and point to valid urls / segments of your website, whenever criticalcss has issues detecting the url, it might throw a console error!
@@ -49,6 +52,6 @@ Only `urls` is required - all other options are optional. If you don't want to u
 | Name             | Type               | Default              | Description   |
 | ---------------- | ------------------ | -------------------- |-------------  |
 | enabled          | `boolean`          | `mix.inProduction()` | If generating Critical CSS should be enabled |
-| paths            | `object`           | `{}`                 | Takes 2 arguments `base` ( src-url ) and `templates` ( folder where critical css files should be written )
+| paths            | `object`           | `{}`                 | Takes 3 arguments `base` ( src-url ), `templates` ( folder where critical css files should be written ) and `suffix` ( filename pattern )
 | urls             | `array`            | `[]`                 | An array of url objects, each with a url and template key: `{ url: 'http://example.com', template: 'index' }` |
 | options          | `object`           | `{}`                 | An object of [Critical](https://github.com/addyosmani/critical#options) options |
