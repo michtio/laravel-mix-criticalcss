@@ -1,6 +1,10 @@
 const mix = require('laravel-mix');
 
 class Critical {
+    constructor() {
+        this.criticals = [];
+    }
+
     dependencies() {
         this.requiresReload = `
             HTML Webpack critical has been installed. Please run "npm run dev" again.
@@ -16,44 +20,46 @@ class Critical {
             );
         }
 
-        this.config = Object.assign({
+        const critical = Object.assign({
             enabled: mix.inProduction(),
             paths: {},
             urls: [],
             options: {},
         }, config);
 
-        if (this.config.paths.suffix == null) this.config.paths.suffix = '_critical.min';
+        if (critical.paths.suffix == null) critical.paths.suffix = '_critical.min';
+
+        this.criticals.push(critical)
     }
 
     webpackPlugins() {
-        if (this.config.enabled) {
+        if (this.criticals.map((e) => e.enabled).some(Boolean)) {
             const HtmlCritical = require('html-critical-webpack-plugin');
             const plugins = [];
 
-            this.config.urls.forEach((template) => {
+            this.criticals.forEach((critical) => {
 
-                const criticalSrc = this.config.paths.base + template.url;
-                const criticalDest = this.config.paths.templates + template.template + this.config.paths.suffix + '.css';
+                critical.enabled && critical.urls.forEach((template) => {
+                    const criticalSrc = critical.paths.base + template.url;
+                    const criticalDest = `${critical.paths.templates + template.template + critical.paths.suffix  }.css`;
 
-                if (criticalSrc.indexOf('amp_') !== -1) {
+                    if (criticalSrc.indexOf('amp_') !== -1) {
 
-                    this.config.options.width = 600;
-                    this.config.options.height = 19200;
+                        critical.options.width = 600;
+                        critical.options.height = 19200;
 
-                }
+                    }
 
-                plugins.push(new HtmlCritical(Object.assign({
-                    src: criticalSrc,
-                    dest: criticalDest,
-                }, this.config.options)));
+                    plugins.push(new HtmlCritical(Object.assign({
+                        src: criticalSrc,
+                        dest: criticalDest,
+                    }, critical.options)));
+                });
 
-            });
+            })
 
             return plugins;
-
         }
-
     }
 
 }
