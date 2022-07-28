@@ -30,14 +30,21 @@ mix
         enabled: mix.inProduction(),
         paths: {
             base: 'https://url-of-where-criticalcss-is-extracted.com/',
-            templates: './where-critical-css-file-needs-to-be-written/',
+            templates: './css/critical', //Where css files need to be written, all these paths are relative to /public
+                                         //So the example path here will be public/css/critical       
             suffix: '_critical.min'
         },
         urls: [
             { url: 'blog', template: 'blog' },
         ],
+        //Now using https://github.com/addyosmani/critical v4.0.1
         options: {
-            minify: true,
+            //It's important to note here you should NOT set inline:true, this will break the whole system.
+            width:411,
+            height:823,
+            penthouse:{
+                timeout:1200000
+            }
         },
     });
 
